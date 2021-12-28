@@ -1,0 +1,67 @@
+<form novalidate (ngSubmit)="addSubmit.emit(newPerson)">
+  <fieldset class="fio">
+    <legend>Фио</legend>
+    <div>
+      Фамилия:
+      <input
+        name="lastName"
+        [(ngModel)]="newPerson.lastName"
+        #lastName="ngModel"
+        required
+        pattern="^[a-zA-Zа-яА-ЯёЁ]+$"
+      />
+    </div>
+    <div>
+      Имя:
+      <input
+        name="firstName"
+        [(ngModel)]="newPerson.firstName"
+        #firstName="ngModel"
+        required
+        pattern="^[a-zA-Zа-яА-ЯёЁ]+$"
+      />
+    </div>
+    <div>
+      Отчество:
+      <input
+        name="patronymic"
+        [(ngModel)]="newPerson.patronymic"
+        #patronymic="ngModel"
+        required
+        pattern="^[a-zA-Zа-яА-ЯёЁ]+$"
+      />
+    </div>
+  </fieldset>
+  <div>
+    Дата рождения:
+    <input
+      name="dateBirth"
+      type="date"
+      [ngModel]="newPerson.dateBirth | date: 'yyyy-MM-dd'"
+      (ngModelChange)="newPerson.dateBirth = parseDate($event)"
+      #dateBirth="ngModel"
+      required
+    />
+  </div>
+  <div>
+    Средний бал:
+    <input
+      name="score"
+      type="number"
+      [(ngModel)]="newPerson.score"
+      #score="ngModel"
+      required
+      pattern="([0-4](\.\d{0,4})*|5)"
+    />
+  </div>
+  <div>
+    <button
+      type="submit"
+      [disabled]="firstName.invalid ||
+        lastName.invalid ||
+        patronymic.invalid ||
+        dateBirth.invalid ||
+        score.invalid"
+    >Добавить</button>
+  </div>
+</form>

@@ -1,0 +1,33 @@
+table.tab {
+  border-spacing: 0;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+table.tab td, th {
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  padding: 10px;
+}
+
+.found {
+  background-color: lightgray;
+}
+
+div.search {
+  border: 1px solid;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-right: 80%;
+  border-bottom: 0;
+}
+
+div.filter {
+  border: 1px solid;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-right: 70%;
+  border-bottom: 0;
+}
