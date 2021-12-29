@@ -31,3 +31,7 @@ div.filter {
   margin-right: 70%;
   border-bottom: 0;
 }
+
+div#app-add-person {
+  margin-top: 20px;
+}

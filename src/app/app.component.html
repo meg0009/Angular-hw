@@ -58,15 +58,16 @@
       <td>{{person.patronymic}}</td>
       <td>{{person.dateBirth.toLocaleDateString()}}</td>
       <td>{{person.score}}</td>
-      <td><button name="removeElem" (click)="removePerson(person)">remove</button></td>
+      <td><button name="removeElem" (click)="openRemoveDialog(person)">remove</button></td>
     </ng-container>
   </tr>
 </table>
 
-<div>
+<div id="app-add-person">
   Добавить пользователя (снятие галочки включает редактирование)?
   <input name="addOrRemake" type="checkbox" [(ngModel)]="addPersonFlag"/>
 </div>
+
 
 <app-add-person *ngIf="addPersonFlag" (addSubmit)="addPerson(newPerson)" [newPerson]="newPerson"></app-add-person>
 <app-add-person *ngIf="!addPersonFlag" (addSubmit)="remakePerson(newPerson)" [newPerson]="newPerson"></app-add-person>

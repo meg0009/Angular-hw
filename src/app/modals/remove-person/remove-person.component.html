@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Вы уверены, что хотите удалить студента:</h1>
+<div mat-dialog-content>
+  <div>
+  Студент:
+  </div>
+  <div>
+    <mat-form-field>
+      <div>
+      <mat-label>Фамилия:</mat-label>
+        <input matInput [ngModel]="data.lastName" readonly/>
+      </div>
+      <div>
+      <mat-label>Имя:</mat-label>
+        <input matInput [ngModel]="data.firstName" readonly/>
+      </div>
+    </mat-form-field>
+  </div>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onOkClick()">Ok</button>
+  <button mat-button (click)="onNoClick()">No</button>
+</div>

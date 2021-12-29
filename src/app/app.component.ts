@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {Person} from "./person";
+import {MatDialog} from "@angular/material/dialog";
+import {RemovePersonComponent} from "./modals/remove-person/remove-person.component";
 
 @Component({
   selector: 'app-root',
@@ -34,7 +36,7 @@ export class AppComponent {
     0,
   );
 
-  constructor() {
+  constructor(public  dialog: MatDialog) {
     this._persons = [
       new Person(
         'Василий',
@@ -226,5 +228,18 @@ export class AppComponent {
     if (index > -1) {
       this._persons.splice(index, 1);
     }
+  }
+
+  openRemoveDialog(p: Person) {
+    const dialogRef = this.dialog.open(RemovePersonComponent, {
+      width: '500px',
+      data: p,
+    })
+
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.removePerson(p);
+      }
+    });
   }
 }
